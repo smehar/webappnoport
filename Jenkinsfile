@@ -40,7 +40,7 @@ pipeline {
                     docker rm -f ${IMAGE_NAME}
                     docker run --name $IMAGE_NAME -d -p 81:81 -e PORT=81 smehar/$IMAGE_NAME:$IMAGE_TAG
                     sleep 10
-                    curl http://localhost | grep "Welcome"
+                    curl http://localhost:81 | grep "Welcome"
                 '''
               }
            }
