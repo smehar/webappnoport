@@ -26,7 +26,7 @@ pipeline {
                     docker stop ${IMAGE_NAME}
                     docker rm -f ${IMAGE_NAME}
                     docker run --name $IMAGE_NAME -d -p 81:81 -e PORT=81 smehar/$IMAGE_NAME:$IMAGE_TAG
-                    sleep 10
+                    sleep 5
                  '''
                }
             }
@@ -39,7 +39,7 @@ pipeline {
                     docker stop ${IMAGE_NAME}
                     docker rm -f ${IMAGE_NAME}
                     docker run --name $IMAGE_NAME -d -p 81:81 -e PORT=81 smehar/$IMAGE_NAME:$IMAGE_TAG
-                    sleep 10
+                    sleep 5
                     curl http://localhost:81 | grep "Welcome"
                 '''
               }
